@@ -2,6 +2,8 @@
 #include "bits/stdc++.h"
 using namespace std;
 
+//initializes the matrix
+
 void Universe::initialize(string fileName1) {
     fstream file;
     file.open(fileName1);
@@ -17,6 +19,8 @@ void Universe::initialize(string fileName1) {
     file.close();
     display();
 }
+
+//calculates the next generation of cells that are either alive or dead
 
 void Universe::nextGeneration(){
     bool new_grid[SIZE1 + 2][SIZE2 + 2] = {{false}};
@@ -44,6 +48,8 @@ void Universe::nextGeneration(){
     display();
 }
 
+//counts the number of neighbours to check if the cell will be alive or dead in the next generation
+
 int Universe::countNeighbours(int x, int y){
     int res=-grid[x][y];
     for(int i=x-1; i <=  x+1; i++){
@@ -53,6 +59,8 @@ int Universe::countNeighbours(int x, int y){
     }
     return res;
 }
+
+//runs the games
 
 void Universe::run(int n) {
     for (int i = 0; i < n; i++) {
@@ -64,6 +72,8 @@ void Universe::run(int n) {
     }
 }
 
+//gives the user the option to reset the matrix back again
+
 void Universe::reset() {
     for(int i=1; i <SIZE1+1; i++){
         for (int j=1; j<SIZE2+1; j++){
@@ -71,6 +81,8 @@ void Universe::reset() {
         }
     }
 }
+
+//displays the matrix
 
 void Universe::display() {
     for(int i=1; i <SIZE1+1; i++){
